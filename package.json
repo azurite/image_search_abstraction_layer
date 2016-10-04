@@ -1,0 +1,20 @@
+{
+  "name": "image-search",
+  "version": "1.0.0",
+  "description": "An image search abstraction layer that uses the bing api",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "azurite",
+  "license": "MIT",
+  "dependencies": {
+    "connect-logger": "0.0.1",
+    "errorhandler": "^1.4.3",
+    "express": "^4.14.0",
+    "mongodb": "^2.2.10",
+    "serve-favicon": "^2.3.0",
+    "serve-static": "^1.11.1"
+  }
+}
