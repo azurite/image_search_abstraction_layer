@@ -10,11 +10,11 @@
   "author": "MarkoN95",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.15.2",
     "connect-logger": "0.0.1",
     "errorhandler": "^1.4.3",
     "express": "^4.14.0",
     "mongodb": "^2.2.10",
+    "node-bing-api": "^2.4.1",
     "serve-favicon": "^2.3.0",
     "serve-static": "^1.11.1"
   }

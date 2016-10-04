@@ -8,6 +8,9 @@ var qs = require("querystring");
 var http = require("http");
 var path = require("path");
 
+var search = require("./api/search-image.js");
+var latest = require("./api/latest.js");
+
 var express = require("express");
 var app = express();
 
@@ -18,5 +21,8 @@ if(app.get("env") === "development") {
 
 app.use(favicon(path.join(__dirname, "/public/favicon.ico")));
 app.use(_static(path.join(__dirname, "/public")));
+
+app.get("/api/imagesearch", search);
+app.get("/api/latest/imagesearch", latest);
 
 http.createServer(app).listen(process.env.PORT || 8080);
