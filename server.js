@@ -3,8 +3,6 @@ var errorhandler = require("errorhandler");
 var favicon = require("serve-favicon");
 var _static = require("serve-static");
 
-var url = require("url");
-var qs = require("querystring");
 var http = require("http");
 var path = require("path");
 
