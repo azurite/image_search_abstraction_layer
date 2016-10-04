@@ -10,6 +10,7 @@
   "author": "MarkoN95",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "connect-logger": "0.0.1",
     "errorhandler": "^1.4.3",
     "express": "^4.14.0",
