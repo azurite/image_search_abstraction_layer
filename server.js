@@ -6,7 +6,7 @@ var _static = require("serve-static");
 var http = require("http");
 var path = require("path");
 
-var search = require("./api/search-image.js");
+var search = require("./api/image-search.js");
 var latest = require("./api/latest.js");
 
 var express = require("express");
