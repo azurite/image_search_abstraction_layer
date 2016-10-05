@@ -23,8 +23,42 @@ module.exports = function image_search(req, res) {
       });
     }
     else {
-      res.json(body);
+      var payload = body.d.results.map((item) => {
+        return {
+          imageUrl: item.MediaUrl || "",
+          title: item.Title || "",
+          thumbnail: item.Thumbnail.MediaUrl || "",
+          pageUrl: item.SourceUrl || ""
+        };
+      });
+      res.json(payload);
     }
   });
   //mongodb update here
+  MongoClient.connect(process.env.MONGOLAB_URI || defaultMongoUrl, (err, db) => {
+    if(err) {
+      console.log(err);
+      return;
+    }
+    db.collection("history", (err, collection) => {
+      if(err) {
+        console.log(err);
+        db.close();
+        return;
+      }
+      var hisEntry = {
+        query: searchQuery.query,
+        date: Date.now()
+      };
+      collection.insert(hisEntry, (err, result) => {
+        if(err) {
+          console.log(err);
+          db.close();
+          return;
+        }
+        console.log(result);
+        db.close();
+      });
+    });
+  });
 };
