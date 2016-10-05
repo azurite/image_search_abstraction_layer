@@ -5,9 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Image Search Main Page</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
 </head>
 <body>
-  <h1>Image Search Abstraction Layer</h1>
-  <p>by MarkoN95</p>
+  <div class="container">
+    <h1 class="header">API Basejump: Image Search Abstraction Layer</h1>
+    <blockquote>
+      <ul>1) I can get the image URLs, alt text and page urls for a set of images relating to a given search string.</ul>
+      <ul>2) I can paginate through the responses by adding a ?offset=&#60;number&#62; parameter to the URL.</ul>
+      <ul>3) I can get a list of the most recently submitted search strings.</ul>
+    </blockquote>
+    <h3>Example Image Search</h3>
+    <code>
+      https://easy-bing-search.herokuapp.com/api/imagesearch?query=funny%20cats&top=1
+    </code>
+    <h3>Example Output</h3>
+    <code>
+      [<br/>
+        {<br/>
+          "imageUrl": "http://3.bp.blogspot.com/-bQQBPRd5EoE/T36Hxo79sJI/AAAAAAAAAo0/35hkTXHc22s/s1600/Funny+Cat-06.jpg",<br/>
+          "title": "Funny Cat Very Funny Photos-Images 2012 | Funny And Cute Animals",<br/>
+          "thumbnail": "http://ts3.mm.bing.net/th?id=OIP.Mcf91edd55382a2d0f249a3a6a7113e79H0&pid=15.1",<br/>
+          "pageUrl": "http://animalzfun.blogspot.com/2012/04/funny-cat-very-funny-photos-images-2012.html"<br/>
+        }<br/>
+      ]
+    </code>
+    <p>You can also use <code>offset=&#60;number&#62;</code> to skip the first results</p>
+    <h3>Example History lookup</h3>
+    <code>
+      https://easy-bing-search.herokuapp.com/api/latest/imagesearch?limit=1
+    </code>
+    <p>Default limit is the 10 latest entries. Max limit is 50</p>
+    <h3>Example Output</h3>
+    <code>
+      [<br/>
+        {<br/>
+          "query":"funny cats",<br/>
+          "date":1475672773236<br/>
+        }<br/>
+      ]
+    </code>
+  </div>
 </body>
 </html>

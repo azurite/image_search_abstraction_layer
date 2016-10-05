@@ -10,10 +10,11 @@ function verifyLimit(lim) {
   if(!lim) {
     return 10; //default limit
   }
-  if(typeof lim !== "number") {
+  var limNum = Number(lim);
+  if(isNaN(limNum)) {
     return 10; //default limit
   }
-  return (lim > 50) ? 50 : lim;
+  return (limNum > 50) ? 50 : limNum;
 }
 
 module.exports = function latest(req, res) {
