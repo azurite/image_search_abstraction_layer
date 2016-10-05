@@ -2,7 +2,7 @@
   "name": "image-search",
   "version": "1.0.0",
   "description": "An image search abstraction layer that uses the bing api",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
