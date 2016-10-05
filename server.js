@@ -15,8 +15,8 @@ if(app.get("env") === "development") {
   app.use(errorhandler());
 }
 
-app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
-app.use(_static(path.join(__dirname, "public")));
+app.use(favicon(path.join(__dirname + "/public/favicon.ico")));
+app.use(_static(path.join(__dirname + "/public")));
 
 var apiList = ["imagesearch"];
 
