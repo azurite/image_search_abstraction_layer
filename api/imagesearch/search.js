@@ -1,4 +1,4 @@
-var Bing = require("node-bing-api")({ accKey: process.env.ACCKEY || require("./secret/acckey.js")() });
+var Bing = require("node-bing-api")({ accKey: process.env.ACCKEY || require("../secret/acckey.js")() });
 
 var mongodb = require("mongodb");
 var MongoClient = mongodb.MongoClient;

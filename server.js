@@ -2,12 +2,10 @@ var logger = require("connect-logger");
 var errorhandler = require("errorhandler");
 var favicon = require("serve-favicon");
 var _static = require("serve-static");
+var mapApiToRoutes = require("./api/map-api-routes.js");
 
 var http = require("http");
 var path = require("path");
-
-var search = require("./api/image-search.js");
-var latest = require("./api/latest.js");
 
 var express = require("express");
 var app = express();
@@ -20,7 +18,10 @@ if(app.get("env") === "development") {
 app.use(favicon(path.join(__dirname, "/public/favicon.ico")));
 app.use(_static(path.join(__dirname, "/public")));
 
-app.get("/api/imagesearch", search);
-app.get("/api/latest/imagesearch", latest);
+var apiList = ["imagesearch"];
+
+apiList.forEach((item) => {
+  mapApiToRoutes(app, item);
+});
 
 http.createServer(app).listen(process.env.PORT || 8080);
