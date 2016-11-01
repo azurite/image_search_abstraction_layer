@@ -3,6 +3,7 @@ var errorhandler = require("errorhandler");
 var favicon = require("serve-favicon");
 var _static = require("serve-static");
 var mapApiToRoutes = require("./api/map-api-routes.js");
+var serveDefault = require("./api/serve-default.js");
 
 var http = require("http");
 var path = require("path");
@@ -23,5 +24,7 @@ var apiList = ["imagesearch"];
 apiList.forEach((item) => {
   mapApiToRoutes(app, item);
 });
+
+app.use(serveDefault());
 
 http.createServer(app).listen(process.env.PORT || 8080);
